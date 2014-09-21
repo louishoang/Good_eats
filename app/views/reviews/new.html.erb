@@ -1,0 +1,31 @@
+<h1>Create a new review</h1>
+  <%= form_for @review, url: {action: "create"}, html: {class: "input_form"} do |f| %>
+    <% if @review.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(@review.errors.count, "error") %> prohibited
+          this review from being posed:
+        </h2>
+        <ul>
+          <% @review.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <p>
+      <label>Rating: </label>
+      <%= f.select(:rating, [1, 2, 3, 4, 5]) %>
+    </p>
+    <p>
+      <%= f.label :description %><br />
+      <%= f.text_area :description, size: "60x12" %>
+    </p>
+    <p>
+      <%= f.submit "Create" %>
+    </p>
+  <% end %>
+
+<br />
+<%= link_to 'Back', restaurants_path %>
+<br />

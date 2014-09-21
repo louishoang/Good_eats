@@ -29,9 +29,11 @@ ActiveRecord::Schema.define(version: 20140921161000) do
   end
 
   create_table "reviews", force: true do |t|
-    t.integer "rating",        null: false
-    t.text    "description"
-    t.integer "restaurant_id", null: false
+    t.integer  "rating",        null: false
+    t.text     "description"
+    t.integer  "restaurant_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

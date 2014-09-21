@@ -8,3 +8,20 @@
 <p>
   Description: <%= @restaurant.description %>
 </p>
+
+<div style="margin-top: 80px">
+  <h2>Customer reviews of <%= @restaurant.name %></h2>
+  <%= link_to "New Review", new_restaurant_review_path(@restaurant) %>
+  <ul>
+    <% @reviews.each do |review| %>
+      <li>
+        <p style="font-weight: bold">
+          Rating <%= review.rating %> --- Created at: <%= review.created_at %>
+        </p>
+        <p>
+          <span style="margin-left: 20px"><%= review.description %></span>
+        </p>
+      </li>
+    <% end %>
+  </ul>
+</div>

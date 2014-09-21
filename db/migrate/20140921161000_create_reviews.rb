@@ -5,7 +5,7 @@ class CreateReviews < ActiveRecord::Migration
       t.text :description
       t.integer :restaurant_id, null: false
 
-      t.timestamp
+      t.timestamps
     end
   end
 end
