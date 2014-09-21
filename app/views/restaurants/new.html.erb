@@ -1,0 +1,51 @@
+<h1>Create new restaurant</h1>
+  <%= form_for @restaurant, url: {action: "create"}, html: {class: "input_form"} do |f| %>
+    <% if @restaurant.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(@restaurant.errors.count, "error") %> prohibited
+          this restaurant from being posed:
+        </h2>
+        <ul>
+          <% @restaurant.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <p>
+      <%= f.label :name %><br />
+      <%= f.text_field :name, size: "50x10" %>
+    </p>
+    <p>
+      <%= f.label :category %><br />
+      <%= f.text_field :category, size: "50x10" %>
+    </p>
+    <p>
+      <%= f.label :address %><br />
+      <%= f.text_field :address, size: "50x10" %>
+    </p>
+    <p>
+      <%= f.label :city %><br />
+      <%= f.text_field :city, size: "50x10" %>
+    </p>
+    <p>
+      <%= f.label :state %><br />
+      <%= f.text_field :state, size: "50x10" %>
+    </p>
+    <p>
+      <%= f.label :zip_code %><br />
+      <%= f.text_field :zip_code, size: "50x10" %>
+    </p>
+    <p>
+      <%= f.label :description %><br />
+      <%= f.text_area :description, size: "60x12" %>
+    </p>
+    <p>
+      <%= f.submit "Create" %>
+    </p>
+  <% end %>
+
+<br />
+<%= link_to 'Back', restaurants_path %>
+<br />
